@@ -11,17 +11,17 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 def sendEmail(recipients, new_discussion_html_str):
-	fromaddr = "scripthamikmukelyan@gmail.com"
+	fromaddr = "your_email@email.com"
 	toaddr = recipients
 	msg = MIMEMultipart()
 	msg['From'] = fromaddr
-	msg['Subject'] = "Testing"
+	msg['Subject'] = "Subject"
 	 
 	msg.attach(MIMEText(new_discussion_html_str, 'html'))
 	 
 	server = smtplib.SMTP('smtp.gmail.com', 587)
 	server.starttls()
-	server.login(fromaddr, "rootpass")
+	server.login(fromaddr, "password")
 	text = msg.as_string()
 	server.sendmail(fromaddr, toaddr, text)
 	server.quit()
@@ -65,6 +65,6 @@ if __name__ == '__main__':
 		update_time = datetimeFromRawDate(getRawDateFromHTML(discussion_text)).replace(tzinfo=utc)
 		if update_time > last_date:
 			html_email = '<html><head></head><body>' + discussion_text + '</body></html>'
-			sendEmail(['hamikmukelyan@gmail.com', 'gdrayna@gmail.com', 'ksilsbee@gmail.com'], html_email)
+			sendEmail(['your_email@email.com'], html_email)
 			last_date = update_time
 		time.sleep(60 * 10) # sleep for 10 mins
