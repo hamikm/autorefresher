@@ -33,7 +33,7 @@ def getHTMLFromPage(url):
 
 def getPartOfInterestFromRawHTML(raw_html):
 	parsedDoc = BeautifulSoup(raw_html, 'html.parser')
-	lookForThisTag = TODO # string
+	lookForThisTag = TODO # e.g. 'pre'
 	strStrDictOfAttrbs = TODO # e.g.  { 'class' : 'glossaryProduct' }
 	return parsedDoc.find(lookForThisTag, strStrDictOfAttrbs).prettify()
 
