@@ -39,12 +39,12 @@ def getPartOfInterestFromRawHTML(raw_html):
 
 if __name__ == '__main__':
 	while True:
-		theUrl = TODO # string
+		theUrl = TODO # e.g. 'http://forecast.weather.gov/product.php?site=HNX&issuedby=HNX&product=AFD&format=CI&version=1&glossary=1'
 		raw_html = getHTMLFromPage(theUrl)
 		part_of_interest = getPartOfInterestFromRawHTML(raw_html)
 		if part_of_interest != old_part_of_interest:
 			html_email = '<html><head></head><body>' + part_of_interest + '</body></html>'
-			lstOfRecipients = TODO # e.g. ['a@.com', 'c@d.com'] 
+			lstOfRecipients = TODO # list of email addresses as strings
 			sendEmail(lstOfRecipients, html_email)
 			old_part_of_interest = part_of_interest
 		sleepTimeMins = TODO # int
